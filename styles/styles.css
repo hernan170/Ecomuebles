@@ -1,0 +1,77 @@
+
+
+header{
+   
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   
+}
+
+nav ul{text-align: right;
+}
+nav ul li{display:inline;
+   margin: right 20px;
+             
+}
+
+h1{
+   color: white;
+   margin:80px;
+   line-height: 50px;
+   text-decoration: dotted;
+}
+h2 {margin: 80px;
+   
+   
+}
+     
+
+footer{ margin: solid black 2px;
+   
+}
+
+ .card {
+   border: solid black 2px;
+}
+   
+ .contenedor{
+   display: grid;
+   grid-template-columns: repeat(3,1fr);
+   margin: 150px;
+   grid-gap:100px ;
+ } 
+
+form{
+   margin-left: 80%;  
+}
+.logos{
+   margin: 10px;
+}
+
+.text-bg-success{
+   border: solid black 2px;
+}
+.nav{
+   grid-gap:10px;
+   
+ 
+
+}
+.nav-item{
+   border: solid black 2px;
+   border-radius: 10px;
+  
+}
+.clearfix{
+   margin: 10px;
+}
+.carousel img{
+   margin:auto ;
+   height: 500px;
+}
+
+  
+   
+
