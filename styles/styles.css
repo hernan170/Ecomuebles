@@ -16,15 +16,15 @@ nav ul li{display:inline;
              
 }
 
-h1{
+h1{font-family: 'Times New Roman', Times, serif;
    color: white;
    margin:80px;
    line-height: 50px;
    text-decoration: dotted;
 }
-h2 {margin: 80px;
-   
-   
+h2 {margin: 100px;
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
 }
      
 
@@ -55,9 +55,6 @@ form{
 }
 .nav{
    grid-gap:10px;
-   
- 
-
 }
 .nav-item{
    border: solid black 2px;
@@ -66,12 +63,20 @@ form{
 }
 .clearfix{
    margin: 10px;
+   
 }
 .carousel img{
    margin:auto ;
    height: 500px;
-}
+   padding: 80px;
 
-  
-   
+}
+body{
+   background-image: url(https://static.vecteezy.com/ti/vetor-gratis/p1/21509487-conjunto-do-ecologico-sustentabilidade-rabiscos-meio-ambiente-desenho-animado-elementos-isolado-em-branco-fundo-ecologia-rabiscos-eps-10-vetor.jpg);
+}
+p{
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   font-size: 20px;
+   color: black;
+}
 
