@@ -1,13 +1,59 @@
-header{
-    nav{
-        ul{
-           li{
-              
-               a{
 
+
+/*import gneral*/
+
+@import"general";
+
+
+/*variable color primario*/
+
+$primary-color: darkcyan;
+
+/*Aplicacion de variable*/
+@import"variables";
+body{
+
+    background-color: $primary-color;
+}
+
+/*Anidamiento*/
+
+header{
+    padding: 10px;
+    nav{
+        border-radius: 5px;
+        ul{
+            list-style: circle;
+            li{
+                text-decoration: solid;
             }
-           }
         }
+
     }
 }
-@use"general";
+
+
+/*aplicacion de mixin*/
+@import"mixinsextends";
+ footer{
+    @extend %flexrowcenter
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
