@@ -35,7 +35,7 @@ header{
 
 /*aplicacion de mixin*/
 @import"mixinsextends";
- footer{
+ h2{
     @extend %flexrowcenter
  }
 
