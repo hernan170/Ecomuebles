@@ -1,151 +1,210 @@
-/*import gneral*/
-.nav {
-  display: flex;
-  gap: 10px;
-}
-.nav .navbar {
-  height: 100%;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-  padding: 30%;
+/* --- Variables CSS (Custom Properties) --- */
+/* Ideal para una gestión de tema centralizada y un paso hacia SASS */
+:root {
+    --color-primary-dark: #212529; /* Color oscuro principal (similar a bg-dark de Bootstrap) */
+    --color-secondary-blue: #0763ee; /* Azul de Bootstrap para botones o acentos */
+    --color-text-light: #0358aefd; /* Blanco suave para texto sobre fondos oscuros */
+    --color-text-muted: #adb5bd; /* Gris claro para texto secundario */
+    --color-card-bg: #292d31; /* Fondo de tarjetas si se desea un oscuro diferente */
 }
 
-.links {
-  font-size: 3rem;
-  font-weight: bold;
+/* --- Estilos Generales y Reset Básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Incluye padding y border en el ancho/alto */
 }
 
+body {
+    font-family: 'Arial', sans-serif;
+    color: var(--color-text-light); /* Color de texto predeterminado del body */
+    background-color: var(--color-primary-dark); /* Fondo oscuro general */
+    overflow-x: hidden; /* Evita el scroll horizontal */
+    line-height: 1.6;
+}
+
+/* --- Header y Navegación (Navbar de Bootstrap) --- */
+/* El componente navbar de Bootstrap ya maneja gran parte del layout,
+   estas reglas complementan o sobrescriben lo mínimo necesario. */
+.navbar-brand h1 {
+    font-size: 1.8rem; /* Ajusta el tamaño del título de la marca */
+    margin-bottom: 0; /* Quita el margen inferior predeterminado del h1 */
+    color: var(--color-text-light); /* Asegura que el título sea visible */
+}
+
+.navbar-nav .nav-link {
+    /* Estilos para los enlaces de navegación */
+    color: var(--color-text-light); /* Color del texto del enlace */
+    font-weight: 500; /* Un poco más de peso a la fuente */
+    padding: 0.5rem 1rem; /* Padding para hacerlos más clickeables */
+    border-radius: 0.375rem; /* Bordes redondeados para el estilo btn-secondary */
+    /* Las clases btn btn-secondary en HTML ya manejan el fondo y el hover */
+}
+
+.navbar-nav .nav-link.active {
+    /* Estilos para el enlace de la página activa */
+    /* Bootstrap ya maneja el 'active' visualmente */
+    font-weight: bold; /* Hacerlo un poco más negrita */
+}
+
+/* --- Main Content --- */
 main {
-  padding: 50px;
+    padding-top: 20px; /* Espacio superior para el contenido debajo del header fijo */
+    padding-bottom: 20px;
+    /* Las clases container y my-5 en HTML ya manejan el ancho y los márgenes externos */
 }
 
-body {
-  overflow-x: hidden;
-  background-color: darkcyan;
-  justify-content: center;
-  align-items: center;
+main h2 {
+    color: var(--color-text-light); /* Color del título principal de la sección */
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center; /* Títulos centrados */
 }
 
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  margin: 150px;
-  gap: 50px;
+/* --- Estilos de Cards (Novedades/Productos/Galería) --- */
+.card {
+    background-color: var(--color-card-bg); /* Fondo oscuro para las tarjetas */
+    color: var(--color-text-light); /* Texto claro para las tarjetas */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
 }
 
-.contenedor {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 100px;
+.card-title {
+    color: var(--color-secondary-blue); /* Color para los títulos de las tarjetas */
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
 }
 
-.logos {
-  display: flex;
-  justify-content: baseline;
-  align-items: center;
-  gap: 10px;
+.card-text {
+    color: var(--color-text-muted); /* Color para el texto del cuerpo de la tarjeta */
 }
 
-.email {
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  flex-direction: column;
+.card-img-top {
+    /* Las imágenes de las cards ya tienen img-fluid de Bootstrap */
+    object-fit: cover; /* Para que las imágenes cubran el espacio sin distorsionarse */
 }
 
-@media (max-width: 768px) {
-  .contenedor {
-    display: block;
-    gap: 100px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .h1 {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .h1 .h2 {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  .form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-@media (max-width: 768px) {
-  .nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-  }
-  .clearflix {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .galeria {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .img1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 100px;
-    height: auto;
-  }
-}
-/*variable color primario*/
-/*Aplicacion de variable*/
-body {
-  background-color: darkcyan;
+/* En caso de que tengas la imagen flotante en "Quienes Somos" */
+.clearfix img {
+    /* img-fluid de Bootstrap ya hace esto: */
+    /* max-width: 100%; */
+    /* height: auto; */
+    border-radius: 0.375rem; /* Border-radius para la imagen flotante */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar la imagen */
 }
 
-/*Anidamiento*/
-header {
-  padding: 10px;
-}
-header nav {
-  border-radius: 5px;
-}
-header nav ul {
-  list-style: circle;
-}
-header nav ul li {
-  text-decoration: solid;
+/* --- Footer --- */
+footer {
+    /* Las clases text-bg-dark y p-3 ya están aplicadas en el HTML */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria superior */
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
-/*aplicacion de mixin*/
-h2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+footer h4 {
+    color: var(--color-text-light); /* Color para los títulos del footer */
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
 }
 
-/*# sourceMappingURL=style.css.map */
+footer .form-control,
+footer .form-select {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo transparente para inputs */
+    color: var(--color-text-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+footer .form-control::placeholder {
+    color: var(--color-text-muted); /* Color para el placeholder */
+}
+
+footer .input-group-text {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--color-text-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+footer .btn-secondary:hover {
+    /* Los botones ya están estilizados por Bootstrap */
+    transition: background-color 0.3s ease;
+    
+}
+
+footer .btn-secondary:hover {
+    background-color: var(--color-secondary-blue); /* Efecto hover en botones del footer */
+}
+
+/* Logos de redes sociales */
+.logos img {
+    transition: transform 0.2s ease; /* Transición para efecto hover */
+}
+
+.logos img:hover {
+    transform: scale(1.1); /* Efecto de escala al pasar el mouse */
+}
+
+/* Derechos de autor */
+footer p.text-muted {
+    color: rgba(255, 255, 255, 0.5) !important; /* Asegura que el color sea semitransparente */
+}
+
+
+/* --- Media Queries --- */
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 991.98px) { /* Este es el breakpoint 'lg' de Bootstrap */
+    /* El navbar de Bootstrap ya se convierte en hamburguesa */
+    .navbar-collapse, .offcanvas {
+        text-align: center; /* Centrar elementos en el menú lateral si lo deseas */
+    }
+
+    .offcanvas-body .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra los items del menú lateral */
+        padding-top: 20px;
+    }
+
+    .offcanvas-body .navbar-nav .nav-item {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .offcanvas-body .navbar-nav .nav-link {
+        width: 80%; /* Para que los botones sean un poco más estrechos */
+        margin: 0 auto; /* Centrar los botones */
+    }
+
+    main h2 {
+        font-size: 1.8rem; /* Ajuste para móviles */
+    }
+
+    /* Las grillas de Bootstrap (row-cols-1, row-cols-md-2, etc.) ya manejan esto. */
+       
+    .row.row-cols-1 {
+        justify-content: center; /* Centra las cards si hay una sola columna */
+    }
+
+    .card {
+        margin-bottom: 1rem; /* Espacio extra entre cards apiladas en móvil */
+    }
+}
+
+/* Estilos para tabletas (entre 768px y 991.98px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar-brand h1 {
+        font-size: 2rem;
+    }
+    
+    /* Bootstrap ya maneja 2 o 3 columnas con row-cols-md-2, row-cols-lg-3, etc. */
+}
+
+/* Estilos para escritorios (más de 992px) */
+@media (min-width: 992px) {
+    .navbar-brand h1 {
+        font-size: 2.2rem;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1.2rem; /* Más espacio en desktop */
+    }
+}

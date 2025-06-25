@@ -1,0 +1,12 @@
+
+
+// Mixin para estilos de elementos al pasar el mouse
+@mixin hover-effect($background-color, $transform: none, $box-shadow: none) {
+    transition: background-color $transition-speed ease, transform $transition-speed ease, box-shadow $transition-speed ease;
+
+    &:hover {
+        background-color: $background-color;
+        transform: $transform;
+        box-shadow: $box-shadow;
+    }
+}

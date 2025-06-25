@@ -1,0 +1,234 @@
+
+// style.scss
+
+/* 1. IMPORTS DE PARTIALS (VARIABLES, MIXINS, EXTENDS) */
+@import "variables"; 
+@import "mixins";   
+@import "extends";  
+
+
+/* 2. ESTILOS BASE Y GENERALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    
+}
+
+body {
+    font-family: $font-family-base;
+    color: $color-text-light; 
+    background-color: $color-primary-dark; 
+    overflow-x: hidden; 
+    line-height: 1.6;
+    font-size: $font-size-base; // Establece el tamaño base de la fuente
+}
+
+/* 3. HEADER Y NAVEGACIÓN (COMPLEMENTOS A BOOTSTRAP NAVBAR) */
+header.navbar { 
+    .navbar-brand {
+        h1 {
+            font-size: $h1-font-size; 
+            margin-bottom: 0; 
+            color: $color-text-light; 
+        }
+    }
+
+    .navbar-toggler {
+        padding: 5px; 
+    }
+
+    .offcanvas-header {
+        .offcanvas-title {
+            color: $color-text-light; 
+        }
+        .btn-close {
+            filter: invert(1); 
+        }
+    }
+
+    .offcanvas-body {
+        .navbar-nav {
+            .nav-item {
+                .nav-link {
+                    color: $color-text-light; 
+                    font-weight: $font-weight-medium;
+                    padding: $padding-base; 
+                    border-radius: $border-radius-base;
+                    
+                    &.active {
+                        font-weight: $font-weight-bold;
+                        background-color: rgba($color-secondary-blue, 0.2); 
+                    }
+                    // Aplicando el mixin de hover-effect
+                    @include hover-effect(rgba($color-secondary-blue, 0.1));
+                }
+            }
+        }
+    }
+}
+
+
+/* 4. MAIN CONTENT (CONTENEDORES Y TIPOGRAFÍA) */
+main {
+    padding-top: $padding-section; // Espacio superior
+    padding-bottom: $padding-section; // Espacio inferior
+
+    h2 {
+        @extend %flex-center-row; // Usando el extend para centrar el h2
+        font-size: $h2-font-size;
+        margin-bottom: $margin-bottom-large;
+        color: $color-secondary-blue; 
+        text-align: center;
+    }
+
+    p {
+        color: $color-text-muted; 
+    }
+
+    // Estilos para las tarjetas
+    .card {
+        background-color: $color-card-bg; 
+        color: $color-text-light; 
+        border: 1px solid rgba(255, 255, 255, 0.1); 
+        
+        .card-title {
+            color: $color-secondary-blue; 
+            font-size: $card-title-font-size;
+            margin-bottom: $margin-bottom-base * 0.75;
+        }
+        .card-text {
+            color: $color-text-muted; 
+        }
+        .card-img-top {
+            object-fit: cover; 
+        }
+    }
+
+    // Estilos para la imagen flotante en "Quienes Somos"
+    .clearfix img {
+        border-radius: $border-radius-base; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    }
+
+    // Estilos para formularios (en Contacto y Footer)
+    form {
+        .form-control,
+        .form-select {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: $color-text-light;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            &::placeholder {
+                color: $color-text-muted;
+            }
+            &:focus {
+                border-color: $color-secondary-blue;
+                box-shadow: 0 0 0 0.25rem rgba($color-secondary-blue, 0.25);
+            }
+        }
+
+        .input-group-text {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: $color-text-light;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-check-input {
+            &:checked {
+                background-color: $color-secondary-blue;
+                border-color: $color-secondary-blue;
+            }
+        }
+        .btn-secondary {
+            // Aplicando el mixin para el hover del botón
+            @include hover-effect(darken($color-secondary-blue, 10%)); 
+        }
+    }
+}
+
+
+/* 5. FOOTER */
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    padding-top: $padding-section;
+    padding-bottom: $padding-section;
+
+    h4 {
+        color: $color-text-light; 
+        font-size: $footer-title-font-size;
+        margin-bottom: $margin-bottom-base;
+    }
+
+    .logos {
+        img {
+            // Aplicando el mixin para el efecto hover de las imágenes de logos
+            @include hover-effect(none, scale(1.1)); 
+        }
+    }
+
+    p.text-white-50 {
+        color: rgba(255, 255, 255, 0.5) !important; 
+        
+    }
+}
+
+
+/* 6. MEDIA QUERIES (RESPONSIVE DESIGN) */
+
+// --- Móviles (Hasta 991.98px - breakpoint 'lg' de Bootstrap) ---
+@media (max-width: 991.98px) {
+    body {
+        font-size: $font-size-base * 0.95; // Ajuste de tamaño de fuente para móviles
+    }
+
+    header.navbar {
+        .offcanvas-body {
+            .navbar-nav {
+                align-items: center; 
+                padding-top: 20px;
+                .nav-item {
+                    width: 100%; 
+                    margin-bottom: 10px; 
+                    .nav-link {
+                        width: 80%; 
+                        margin: 0 auto; 
+                    }
+                }
+            }
+        }
+    }
+
+    main h2 {
+        font-size: $h2-font-size-mobile;
+    }
+}
+
+// --- Tabletas (Desde 768px hasta 991.98px) ---
+@media (min-width: 768px) and (max-width: 991.98px) {
+    main h2 {
+        font-size: $h2-font-size-tablet;
+    }
+}
+
+// --- Escritorios (Más de 992px) ---
+@media (min-width: 992px) {
+    header.navbar {
+        .navbar-brand h1 {
+            font-size: $h1-font-size-desktop;
+        }
+        .navbar-nav .nav-item {
+            margin-left: 1.5rem; 
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
