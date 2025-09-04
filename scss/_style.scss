@@ -21,7 +21,7 @@ body {
     background-color: $color-primary-dark; 
     overflow-x: hidden; 
     line-height: 1.6;
-    font-size: $font-size-base; // Establece el tamaño base de la fuente
+    font-size: $font-size-base; 
 }
 
 /* 3. HEADER Y NAVEGACIÓN (COMPLEMENTOS A BOOTSTRAP NAVBAR) */
@@ -173,8 +173,31 @@ footer {
     }
 }
 
+/* 6. KEYFRAMES DE ANIMACIÓN */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-/* 6. MEDIA QUERIES (RESPONSIVE DESIGN) */
+@keyframes fadeInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* 7. MEDIA QUERIES (RESPONSIVE DESIGN) */
 
 // --- Móviles (Hasta 991.98px - breakpoint 'lg' de Bootstrap) ---
 @media (max-width: 991.98px) {
