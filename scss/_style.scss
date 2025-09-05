@@ -1,190 +1,270 @@
-/* 1. VARIABLES */
+/* --- Variables SCSS --- */
 $color-primary-dark: #212529;
 $color-secondary-blue: #0763ee;
-$color-text-light: #f8f9fa;
+$color-text-light: #0358aefd;
 $color-text-muted: #adb5bd;
 $color-card-bg: #292d31;
-$font-family-base: 'Arial', sans-serif;
 
-/* 2. ESTILOS BASE */
+/* --- Mixin para animación de fade-in --- */
+@mixin fade-in-from-bottom($duration: 1s, $delay: 0s) {
+    animation: fadeInFromBottom $duration ease-in-out forwards;
+    animation-delay: $delay;
+}
+
+/* --- Estilos Generales y Reset Básico --- */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: $font-family-base;
-  color: $color-text-light;
-  background-color: $color-primary-dark;
-  overflow-x: hidden;
-  line-height: 1.6;
-}
-
-/* 3. HEADER Y NAVEGACIÓN */
-header.navbar {
-  .navbar-brand {
-    color: $color-secondary-blue !important; 
-    font-weight: bold;
-    font-size: 1.8rem;
-  }
-  
-  .navbar-dark .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='#{$color-secondary-blue}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
-
-  .navbar-nav .nav-link {
+    font-family: 'Arial', sans-serif;
     color: $color-text-light;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    transition: background-color 0.3s ease;
-
-    &:hover, &.active {
-      background-color: rgba($color-secondary-blue, 0.2);
-    }
-    
-    &.active {
-      font-weight: bold;
-    }
-  }
+    background-color: $color-primary-dark;
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-/* 4. MAIN CONTENT */
+/* --- Encabezado y Navegación --- */
+.main-content-padding {
+    padding-top: 80px;
+}
+
+.navbar-brand {
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+        color: $color-text-light;
+    }
+    .logo-img {
+        height: 1.5em; 
+        margin-right: 8px;
+        vertical-align: middle;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
+
+.navbar-dark {
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%230763ee' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+}
+
+.navbar-nav {
+    .nav-link {
+        color: $color-text-light;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        transition: background-color 0.3s ease;
+
+        &.active {
+            font-weight: bold;
+        }
+    }
+}
+
+/* --- Contenido Principal --- */
 main {
-  padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
-  h1, h2, h4 {
+h2 {
     color: $color-text-light;
-  }
-
-  h1 {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
     text-align: center;
-  }
+}
 
-  .card {
+/* --- Estilos de Tarjetas --- */
+.card {
     background-color: $color-card-bg;
     color: $color-text-light;
     border: 1px solid rgba(255, 255, 255, 0.1);
     opacity: 0;
-    animation: fadeInFromBottom 1s ease-in-out forwards;
+
+    @include fade-in-from-bottom();
+
+    @for $i from 1 through 9 {
+        &:nth-child(#{$i}) {
+            animation-delay: #{$i * 0.1}s;
+        }
+    }
 
     .card-title {
-      color: $color-secondary-blue;
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
+        color: $color-secondary-blue;
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
     }
 
     .card-text {
-      color: $color-text-muted;
+        color: $color-text-muted;
     }
 
     .card-img-top {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
     }
-  }
-
-  .row > .col {
-    @for $i from 1 through 6 {
-      &:nth-child(#{$i}) .card {
-        animation-delay: #{$i * 0.1}s;
-      }
-    }
-  }
-  
-  .fade-in-image {
-    animation: fadeIn 2s ease-in-out;
-    border-radius: 0.375rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
 }
 
-/* 5. FOOTER */
-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 20px 0;
-
-  h4 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-
-  .form-control, .form-select {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: $color-text-light;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    &::placeholder {
-      color: $color-text-muted;
+.clearfix {
+    &::after {
+        content: "";
+        clear: both;
+        display: table;
     }
-  }
-  
-  .input-group-text {
-    background-color: rgba(255, 255, 255, 0.15);
-  }
-
-  .btn-secondary {
-      transition: background-color 0.3s ease;
-      &:hover {
-        background-color: $color-secondary-blue;
-      }
-  }
-
-  .d-flex a img {
-    transition: transform 0.2s ease;
-    &:hover {
-      transform: scale(1.1);
+    img {
+        border-radius: 0.375rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-  }
 }
 
-/* 6. KEYFRAMES DE ANIMACIÓN */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
+.fade-in-image {
     opacity: 1;
-    transform: translateY(0);
-  }
+    transition: opacity 1s ease-in-out;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 75%;
+    position: relative;
+    height: 0;
+
+    iframe {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+}
+
+/* --- Footer --- */
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    h4 {
+        color: $color-text-light;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .form-control,
+    .form-select {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: $color-text-light;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .form-control::placeholder {
+        color: $color-text-muted;
+    }
+
+    .input-group-text {
+        background-color: rgba(255, 255, 255, 0.15);
+        color: $color-text-light;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+        background-color: $color-secondary-blue;
+        transition: background-color 0.3s ease;
+    }
+
+    .logos img,
+    .d-flex img {
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    p.text-muted {
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeInFromBottom {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* 7. MEDIA QUERIES */
+/* --- Media Queries --- */
 @media (max-width: 991.98px) {
-  .offcanvas-body .navbar-nav {
-    align-items: center;
-    padding-top: 20px;
-    
-    .nav-item {
-      width: 100%;
-      margin-bottom: 10px;
+    .navbar-collapse, .offcanvas {
+        text-align: center;
     }
-    
-    .nav-link {
-      width: 80%;
-      margin: 0 auto;
-      text-align: center;
-    }
-  }
+    .offcanvas-body {
+        .navbar-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
 
-  main h1 {
-    font-size: 1.8rem;
-  }
+            .nav-item {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .nav-link {
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
+    }
+    main {
+        h2 {
+            font-size: 1.8rem;
+        }
+    }
+    .row.row-cols-1 {
+        justify-content: center;
+    }
+    .card {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar-brand h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-brand h1 {
+        font-size: 2.2rem;
+    }
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1.2rem;
+    }
 }
 
 
