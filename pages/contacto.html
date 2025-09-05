@@ -13,13 +13,11 @@
     <header class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
         <div class="container-fluid">
             <a class="navbar-brand" href="../index.html">
-                <span class="fw-bold fs-4">Ecomuebles</span>
+                <h1 class="fw-bold fs-4 mb-0">Ecomuebles</h1>
             </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Abrir menú de navegación">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
@@ -31,7 +29,7 @@
                             <a class="nav-link" href="../index.html">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="quienessomos.html">Quienes Somos</a>
+                            <a class="nav-link" href="quienessomos.html">Quiénes Somos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="productos.html">Productos</a>
@@ -49,67 +47,26 @@
     </header>
 
     <main class="container my-5">
-        <h1 class="mb-4 text-center">Contáctanos</h1>
+        <h2 class="mb-4 text-center">Contáctanos</h2>
         <p class="text-center mb-5">
             ¿Tienes alguna pregunta, sugerencia o quieres hacer un pedido especial? Envíanos un mensaje y te responderemos a la brevedad.
         </p>
-
         <section class="formulario">
-            <form class="row g-3 needs-validation" novalidate>
+            <form class="row g-3">
                 <div class="col-md-6">
                     <label for="inputNombre" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="inputNombre" required>
-                    <div class="invalid-feedback">
-                        Por favor, proporciona tu nombre.
-                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmailContacto" class="form-label">Email</label>
                     <input type="email" class="form-control" id="inputEmailContacto" required>
-                    <div class="invalid-feedback">
-                        Por favor, proporciona un email válido.
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputCiudad" class="form-label">Ciudad</label>
-                    <input type="text" class="form-control" id="inputCiudad" required>
-                    <div class="invalid-feedback">
-                        Por favor, proporciona tu ciudad.
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <label for="selectProvincia" class="form-label">Provincia</label>
-                    <select class="form-select" id="selectProvincia" required>
-                        <option selected disabled value="">Elegir...</option>
-                        <option value="Buenos Aires">Buenos Aires</option>
-                        <option value="Cordoba">Córdoba</option>
-                        <option value="Santa Fe">Santa Fe</option>
-                        <option>...</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Por favor, selecciona una provincia.
-                    </div>
                 </div>
                 <div class="col-12">
                     <label for="inputMensaje" class="form-label">Tu Mensaje</label>
                     <textarea class="form-control" id="inputMensaje" rows="5" required></textarea>
-                    <div class="invalid-feedback">
-                        Por favor, escribe tu mensaje.
-                    </div>
                 </div>
                 <div class="col-12">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkTerminos" required>
-                        <label class="form-check-label" for="checkTerminos">
-                            Acepto los términos y condiciones
-                        </label>
-                        <div class="invalid-feedback">
-                            Debes aceptar los términos y condiciones antes de enviar.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <button class="btn btn-secondary" type="submit">Enviar formulario</button>
+                    <button class="btn btn-secondary" type="submit">Enviar Mensaje</button>
                 </div>
             </form>
         </section>
@@ -123,7 +80,7 @@
                     <form class="row gy-2 gx-3 align-items-center">
                         <div class="col-sm-6">
                             <label class="form-label visually-hidden" for="inputNombreFooter">Nombre</label>
-                            <input type="text" class="form-control" id="inputNombreFooter" placeholder="Jose" required>
+                            <input type="text" class="form-control" id="inputNombreFooter" placeholder="Nombre" required>
                         </div>
                         <div class="col-sm-6">
                             <label class="form-label visually-hidden" for="inputEmailFooter">Email</label>
@@ -137,7 +94,6 @@
                         </div>
                     </form>
                 </div>
-                
                 <div class="col-md-auto text-center text-md-end">
                     <h4 class="mb-3">Síguenos en redes:</h4>
                     <div class="d-flex justify-content-center justify-content-md-end gap-3">
