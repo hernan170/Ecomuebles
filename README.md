@@ -70,7 +70,7 @@ URL
 
 Netlify
 
-https://hernan170.github.io/Ecomuebles/
+https://ecofurniture.netlify.app/
 
 👤 Autor
 
