@@ -26,13 +26,7 @@ Mobile-First Approach: El diseño fue concebido priorizando la experiencia móvi
 
 Este proyecto fue desarrollado utilizando un stack moderno y eficiente para garantizar la robustez, escalabilidad y rapidez del desarrollo:
 
-Categoría
-
-Tecnología
-
-Uso Principal
-
-Estructura
+Tecnologías 
 
 HTML5
 
