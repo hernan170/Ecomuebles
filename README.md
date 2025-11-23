@@ -2,12 +2,6 @@
 
 Este proyecto es una landing page de ejemplo para una tienda de comercio electrónico enfocada en la venta de muebles fabricados a partir de materiales reciclados y/o recuperados. La iniciativa busca fusionar el diseño moderno con la sostenibilidad, ofreciendo una experiencia de navegación completamente adaptada a cualquier dispositivo.
 
-🔗 Demo y Acceso al Proyecto
-
-Puedes explorar la versión desplegada y funcional del proyecto a través de la plataforma Netlify, utilizando la URL de GitHub Pages asociada:
-
-Sitio en Vivo: https://hernan170.github.io/Ecomuebles/
-
 ✨ Características Principales
 
 El sitio web está compuesto por 5 páginas principales y se enfoca en ofrecer una experiencia de usuario fluida y estética:
@@ -66,7 +60,17 @@ Despliegue
 
 Netlify
 
-Plataforma utilizada para el despliegue continuo (Deployment) y hosting del sitio.
+🔗 Dominios de Despliegue
+
+El proyecto se encuentra desplegado en dos plataformas distintas:
+
+Plataforma
+
+URL
+
+Netlify
+
+https://hernan170.github.io/Ecomuebles/
 
 👤 Autor
 
